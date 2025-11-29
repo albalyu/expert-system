@@ -1,0 +1,104 @@
+.expert-card {
+  background-color: #2a2a2a;
+  padding: 2rem;
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  max-width: 600px;
+  width: 100%;
+  margin: 0 auto;
+  text-align: left;
+  color: white;
+  transition: all 0.3s ease;
+
+  &__header {
+    margin-bottom: 1.5rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    padding-bottom: 1rem;
+
+    h2 {
+      margin: 0;
+      font-size: 1.5rem;
+      color: #646cff;
+    }
+  }
+
+  &__body {
+    margin-bottom: 2rem;
+    min-height: 100px;
+
+    p {
+      font-size: 1.2rem;
+      line-height: 1.6;
+    }
+  }
+
+  &__footer {
+    display: flex;
+    justify-content: flex-end;
+    gap: 1rem;
+  }
+}
+
+.options-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+  
+  @media (min-width: 600px) {
+     flex-direction: row;
+     flex-wrap: wrap;
+  }
+
+  button {
+    flex: 1;
+    min-width: 120px;
+    padding: 1rem;
+    font-size: 1.1rem;
+    text-align: center;
+    
+    &.primary {
+        background-color: #646cff;
+        color: white;
+        &:hover {
+            background-color: #535bf2;
+        }
+    }
+    
+    &.secondary {
+        background-color: #3a3a3a;
+        border: 1px solid #555;
+        &:hover {
+            background-color: #444;
+        }
+    }
+  }
+}
+
+.result-view {
+    &__title {
+        color: #42b883;
+        margin-top: 0;
+    }
+    &__desc {
+        margin-bottom: 1rem;
+        color: #ddd;
+    }
+    &__rec {
+        background: rgba(66, 184, 131, 0.1);
+        border-left: 4px solid #42b883;
+        padding: 1rem;
+        margin: 1.5rem 0;
+        
+        strong {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: #42b883;
+        }
+    }
+    &__explanation {
+        font-size: 0.9em;
+        color: #888;
+        margin-top: 1rem;
+        font-style: italic;
+    }
+}
