@@ -9,12 +9,32 @@ function App() {
   const [knownFacts, setKnownFacts] = useState({});
   const [history, setHistory] = useState([]); // Stack of [factId]
   const [step, setStep] = useState(null);
+  const [selectedScenario, setSelectedScenario] = useState(null);
 
-  // Run inference whenever facts change
+  // Run inference whenever facts change or scenario changes
   useEffect(() => {
-    const nextStep = determineNextStep(knownFacts, knowledgeBase);
+    if (!selectedScenario) {
+      setStep(null);
+      return;
+    }
+
+    // Filter rules based on the selected scenario ID (e.g., "S1" -> 1)
+    const scenarioIdNum = parseInt(selectedScenario.id.replace('S', ''), 10);
+    
+    const filteredKb = {
+      ...knowledgeBase,
+      rules: knowledgeBase.rules.filter(r => r.scenario === scenarioIdNum)
+    };
+
+    const nextStep = determineNextStep(knownFacts, filteredKb);
     setStep(nextStep);
-  }, [knownFacts]);
+  }, [knownFacts, selectedScenario]);
+
+  const handleScenarioSelect = (scenario) => {
+    setSelectedScenario(scenario);
+    setKnownFacts({});
+    setHistory([]);
+  };
 
   const handleAnswer = (factId, value) => {
     setKnownFacts(prev => ({ ...prev, [factId]: value }));
@@ -22,6 +42,14 @@ function App() {
   };
 
   const handleReset = () => {
+    setKnownFacts({});
+    setHistory([]);
+    // We intentionally keep the selectedScenario to just restart the current diagnostic.
+    // If user wants to change scenario, they use the "Back to Menu" button.
+  };
+
+  const handleBackToMenu = () => {
+    setSelectedScenario(null);
     setKnownFacts({});
     setHistory([]);
   };
@@ -39,44 +67,74 @@ function App() {
     setHistory(newHistory);
   };
 
+  // 1. Scenario Selection Screen
+  if (!selectedScenario) {
+    return (
+      <div className="app-container">
+        <Card title="Выберите тип проблемы (Select Issue Type)" showBack={false}>
+          <div className="options-grid">
+            {knowledgeBase.testScenarios.map(scenario => (
+              <button 
+                key={scenario.id} 
+                className="secondary" 
+                onClick={() => handleScenarioSelect(scenario)}
+                style={{ textAlign: 'left', display: 'flex', flexDirection: 'column', alignItems: 'flex-start' }}
+              >
+                <span style={{ fontWeight: 'bold', display: 'block', marginBottom: '0.2rem' }}>{scenario.name}</span>
+                <span style={{ fontSize: '0.8em', opacity: 0.8 }}>{scenario.description}</span>
+              </button>
+            ))}
+          </div>
+        </Card>
+      </div>
+    );
+  }
+
   if (!step) return <div>Loading...</div>;
 
+  // 2. Diagnostic Screen
   return (
     <div className="app-container">
       {step.type === 'question' && (
         <Card 
-            title="Diagnostic Question" 
-            showBack={history.length > 0} 
-            onBack={handleReset} // Or handleBack if we want step-back
+            title={selectedScenario.name}
+            showBack={true} 
+            onBack={handleBackToMenu} // Header button now goes back to menu
         >
           <p>{step.data.question}</p>
           <Options fact={step.data} onAnswer={handleAnswer} />
           
-          {history.length > 0 && (
-            <div style={{ marginTop: '2rem', fontSize: '0.9em', opacity: 0.6 }}>
+          <div style={{ marginTop: '2rem', display: 'flex', justifyContent: 'space-between', fontSize: '0.9em', opacity: 0.6 }}>
+            {history.length > 0 ? (
                 <button onClick={handleBack} style={{ background: 'none', border: 'none', color: 'inherit', textDecoration: 'underline', padding: 0 }}>
                     &larr; Previous Question
                 </button>
-            </div>
-          )}
+            ) : (
+                <span></span>
+            )}
+            
+            <button onClick={handleReset} style={{ background: 'none', border: 'none', color: 'inherit', textDecoration: 'underline', padding: 0 }}>
+                Restart Scenario
+            </button>
+          </div>
         </Card>
       )}
 
       {step.type === 'issue' && (
-        <Card title="Issue Identified" showBack={false} onBack={handleReset}>
+        <Card title="Issue Identified" showBack={true} onBack={handleBackToMenu}>
           <Result 
             issue={step.data} 
             explanation={step.explanation} 
-            onReset={handleReset} 
+            onReset={handleBackToMenu} 
           />
         </Card>
       )}
 
       {step.type === 'no_result' && (
-        <Card title="Result" showBack={false} onBack={handleReset}>
+        <Card title="Result" showBack={true} onBack={handleBackToMenu}>
           <Result 
             issue={null} 
-            onReset={handleReset} 
+            onReset={handleBackToMenu} 
           />
         </Card>
       )}

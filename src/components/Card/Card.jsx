@@ -12,7 +12,7 @@ const Card = ({ children, title, onBack, showBack }) => {
                     onClick={onBack}
                     style={{ padding: '0.4rem 0.8rem', fontSize: '0.9rem', background: 'transparent', border: '1px solid #555' }}
                  >
-                    Start Over
+                    Back to Menu
                  </button>
              )}
         </div>
