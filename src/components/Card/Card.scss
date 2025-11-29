@@ -3,7 +3,7 @@
   padding: 2rem;
   border-radius: 16px;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-  max-width: 600px;
+  max-width: 1000px; /* Increased width */
   width: 100%;
   margin: 0 auto;
   text-align: left;
@@ -44,9 +44,33 @@
   flex-direction: column;
   gap: 0.8rem;
   
+  /* Default Flex behavior for standard Yes/No options */
   @media (min-width: 600px) {
      flex-direction: row;
      flex-wrap: wrap;
+  }
+
+  /* Modifier for the Scenario Selection screen */
+  &.scenarios {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1rem;
+      
+      @media (min-width: 600px) {
+          grid-template-columns: repeat(2, 1fr);
+      }
+      
+      @media (min-width: 1000px) {
+          grid-template-columns: repeat(5, 1fr);
+      }
+      
+      button {
+          min-height: 140px; /* Taller buttons for scenarios */
+          display: flex;
+          flex-direction: column;
+          justify-content: flex-start;
+          text-align: left;
+      }
   }
 
   button {

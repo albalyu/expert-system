@@ -72,16 +72,15 @@ function App() {
     return (
       <div className="app-container">
         <Card title="Выберите тип проблемы (Select Issue Type)" showBack={false}>
-          <div className="options-grid">
+          <div className="options-grid scenarios">
             {knowledgeBase.testScenarios.map(scenario => (
               <button 
                 key={scenario.id} 
                 className="secondary" 
                 onClick={() => handleScenarioSelect(scenario)}
-                style={{ textAlign: 'left', display: 'flex', flexDirection: 'column', alignItems: 'flex-start' }}
               >
-                <span style={{ fontWeight: 'bold', display: 'block', marginBottom: '0.2rem' }}>{scenario.name}</span>
-                <span style={{ fontSize: '0.8em', opacity: 0.8 }}>{scenario.description}</span>
+                <span style={{ fontWeight: 'bold', display: 'block', marginBottom: '0.5rem', fontSize: '0.9em' }}>{scenario.name}</span>
+                <span style={{ fontSize: '0.75em', opacity: 0.8, lineHeight: '1.3' }}>{scenario.description}</span>
               </button>
             ))}
           </div>
