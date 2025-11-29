@@ -1,0 +1,1194 @@
+{
+  "facts": [
+    {
+      "id": "cable_connected",
+      "type": "boolean",
+      "description": "Сетевой кабель подключен к ПК",
+      "question": "Сетевой кабель подключен к ПК?"
+    },
+    {
+      "id": "other_users_internet_ok",
+      "type": "boolean",
+      "description": "У других пользователей в офисе интернет работает",
+      "question": "У других пользователей в офисе интернет работает?"
+    },
+    {
+      "id": "segment_only_affected",
+      "type": "boolean",
+      "description": "Проблема с сетью наблюдается только в одном отделе/сегменте",
+      "question": "Проблема с сетью наблюдается только в одном отделе (кабинете)?"
+    },
+    {
+      "id": "ping_gateway_ok",
+      "type": "boolean",
+      "description": "Шлюз по умолчанию пингуется",
+      "question": "Удалось ли пингануть шлюз по умолчанию?"
+    },
+    {
+      "id": "ping_external_ip_ok",
+      "type": "boolean",
+      "description": "Внешний IP-адрес (например, 8.8.8.8) пингуется",
+      "question": "Удалось ли пингануть внешний IP-адрес (например, 8.8.8.8)?"
+    },
+    {
+      "id": "dns_resolve_ok",
+      "type": "boolean",
+      "description": "Доменные имена (например, ya.ru) успешно резолвятся в IP",
+      "question": "Удалось ли выполнить ping по доменному имени (например, ya.ru)?"
+    },
+    {
+      "id": "file_server_ip_ping_ok",
+      "type": "boolean",
+      "description": "IP-адрес файлового сервера успешно пингуется",
+      "question": "Удалось ли пингануть файловый сервер по IP?"
+    },
+    {
+      "id": "file_server_name_ping_ok",
+      "type": "boolean",
+      "description": "Файловый сервер пингуется по сетевому имени",
+      "question": "Удалось ли пингануть файловый сервер по имени (например, FILESERVER)?"
+    },
+    {
+      "id": "network_profile_private",
+      "type": "boolean",
+      "description": "Для текущего подключения выбран профиль 'Частная/Рабочая сеть'",
+      "question": "Для текущего подключения выбран профиль 'Частная/Рабочая сеть' (а не 'Общедоступная')?"
+    },
+    {
+      "id": "network_discovery_enabled",
+      "type": "boolean",
+      "description": "На клиентском ПК включено сетевое обнаружение",
+      "question": "На клиентском ПК включено сетевое обнаружение?"
+    },
+    {
+      "id": "same_workgroup_or_domain",
+      "type": "boolean",
+      "description": "ПК состоит в той же рабочей группе/домене, что и остальные",
+      "question": "ПК состоит в той же рабочей группе/домене, что и остальные компьютеры?"
+    },
+    {
+      "id": "wifi_only_this_device",
+      "type": "boolean",
+      "description": "Проблема с Wi-Fi наблюдается только на этом устройстве",
+      "question": "Проблема с Wi-Fi наблюдается только на этом устройстве?"
+    },
+    {
+      "id": "wifi_other_devices_ok",
+      "type": "boolean",
+      "description": "Другие устройства в той же сети Wi-Fi работают нормально",
+      "question": "Другие устройства в этой же сети Wi-Fi работают нормально?"
+    },
+    {
+      "id": "wifi_signal_level",
+      "type": "enum",
+      "options": [
+        "low",
+        "medium",
+        "high"
+      ],
+      "description": "Уровень сигнала Wi-Fi",
+      "question": "Какой уровень сигнала Wi-Fi на проблемном устройстве? (low/medium/high)"
+    },
+    {
+      "id": "wifi_power_saving_enabled",
+      "type": "boolean",
+      "description": "Для Wi-Fi-адаптера включены агрессивные настройки энергосбережения",
+      "question": "Включены ли для Wi-Fi-адаптера агрессивные настройки энергосбережения?"
+    },
+    {
+      "id": "wifi_driver_up_to_date",
+      "type": "boolean",
+      "description": "Драйвер Wi-Fi-адаптера обновлён до актуальной версии",
+      "question": "Драйвер Wi-Fi-адаптера обновлён до актуальной версии?"
+    },
+    {
+      "id": "other_users_login_ok",
+      "type": "boolean",
+      "description": "Другие пользователи могут войти в домен без проблем",
+      "question": "Другие пользователи могут войти в домен без проблем?"
+    },
+    {
+      "id": "login_error_type",
+      "type": "enum",
+      "options": [
+        "invalid_credentials",
+        "account_locked",
+        "no_domain_controller",
+        "other"
+      ],
+      "description": "Тип ошибки при попытке входа в домен",
+      "question": "Какое сообщение об ошибке появляется при входе в домен? (invalid_credentials/account_locked/no_domain_controller/other)"
+    },
+    {
+      "id": "user_password_recently_changed",
+      "type": "boolean",
+      "description": "Пароль доменной учётной записи недавно был изменён",
+      "question": "Недавно ли пользователь менял пароль доменной учётной записи?"
+    },
+    {
+      "id": "domain_controller_reachable",
+      "type": "boolean",
+      "description": "Контроллер домена доступен по сети",
+      "question": "Удалось ли пингануть контроллер домена или проверить его доступность?"
+    },
+    {
+      "id": "webmail_ok",
+      "type": "boolean",
+      "description": "Веб-доступ к корпоративной почте работает с текущим паролем",
+      "question": "Получается ли войти в корпоративную почту через веб-интерфейс с текущим паролем?"
+    },
+    {
+      "id": "mail_client_auth_error",
+      "type": "boolean",
+      "description": "Почтовый клиент сообщает об ошибке аутентификации",
+      "question": "Почтовый клиент сообщает об ошибке аутентификации (неверный логин/пароль)?"
+    },
+    {
+      "id": "system_stored_old_credentials",
+      "type": "boolean",
+      "description": "В системе или клиенте почты сохранены старые учётные данные",
+      "question": "Сохранены ли в системе или почтовом клиенте старые учётные данные (логин/пароль)?"
+    },
+    {
+      "id": "printer_is_network",
+      "type": "boolean",
+      "description": "Принтер подключён по сети (IP/print-сервер)",
+      "question": "Принтер подключён по сети (по IP или через print-сервер)?"
+    },
+    {
+      "id": "ping_printer_ok",
+      "type": "boolean",
+      "description": "IP-адрес принтера пингуется",
+      "question": "Удалось ли пингануть принтер по IP-адресу?"
+    },
+    {
+      "id": "printer_web_ok",
+      "type": "boolean",
+      "description": "Открывается ли веб-интерфейс принтера",
+      "question": "Открывается ли веб-интерфейс принтера в браузере?"
+    },
+    {
+      "id": "printer_panel_error",
+      "type": "boolean",
+      "description": "На панели принтера отображается ошибка (нет бумаги, тонер, замятие и т.п.)",
+      "question": "Есть ли на панели принтера сообщение об ошибке (нет бумаги, нет тонера, замятие и т.п.)?"
+    },
+    {
+      "id": "printer_queue_full",
+      "type": "boolean",
+      "description": "Очередь печати на принтере или сервере переполнена/зависла",
+      "question": "Есть ли зависшие задания в очереди печати на принтере или print-сервере?"
+    },
+    {
+      "id": "print_spooler_service_ok",
+      "type": "boolean",
+      "description": "Служба диспетчера печати (Print Spooler) работает корректно",
+      "question": "Служба диспетчера печати (Print Spooler) работает без ошибок?"
+    },
+    {
+      "id": "issue_affects_many_users",
+      "type": "boolean",
+      "description": "Проблема наблюдается сразу у нескольких пользователей",
+      "question": "Проблема наблюдается сразу у нескольких пользователей?"
+    },
+    {
+      "id": "small_files_also_slow",
+      "type": "boolean",
+      "description": "Даже операции с небольшими файлами на файловом сервере выполняются медленно",
+      "question": "Даже операции с небольшими файлами на файловом сервере выполняются медленно?"
+    },
+    {
+      "id": "server_cpu_high",
+      "type": "boolean",
+      "description": "На файловом сервере высокая загрузка CPU",
+      "question": "На файловом сервере высокая загрузка CPU?"
+    },
+    {
+      "id": "server_ram_high",
+      "type": "boolean",
+      "description": "На файловом сервере высокая загрузка оперативной памяти",
+      "question": "На файловом сервере высокая загрузка оперативной памяти?"
+    },
+    {
+      "id": "server_disk_space_low",
+      "type": "boolean",
+      "description": "На дисках файлового сервера мало свободного места",
+      "question": "На дисках файлового сервера мало свободного места?"
+    },
+    {
+      "id": "server_heavy_background_jobs",
+      "type": "boolean",
+      "description": "На файловом сервере запущены ресурсоёмкие фоновые задачи (бэкап, антивирус и т.п.)",
+      "question": "Запущены ли на файловом сервере ресурсоёмкие фоновые задачи (бэкап, антивирусное сканирование и т.п.)?"
+    },
+    {
+      "id": "vpn_used_before_on_device",
+      "type": "boolean",
+      "description": "VPN ранее уже успешно использовался на данном устройстве",
+      "question": "Ранее VPN уже успешно использовался на данном устройстве?"
+    },
+    {
+      "id": "vpn_error_type",
+      "type": "enum",
+      "options": [
+        "no_response",
+        "auth_failed",
+        "other"
+      ],
+      "description": "Тип ошибки VPN-подключения",
+      "question": "Какой тип ошибки выдаёт VPN-клиент? (no_response/auth_failed/other)"
+    },
+    {
+      "id": "vpn_gateway_ping_ok",
+      "type": "boolean",
+      "description": "VPN-шлюз пингуется по IP или имени",
+      "question": "Удалось ли пингануть VPN-шлюз по IP или имени?"
+    },
+    {
+      "id": "vpn_ports_open",
+      "type": "boolean",
+      "description": "Не блокируются ли провайдером порты, необходимые для VPN",
+      "question": "Проверяли ли вы, что провайдер не блокирует порты, необходимые для VPN (например, 1194, 443 и т.п.)?"
+    },
+    {
+      "id": "vpn_credentials_recently_changed",
+      "type": "boolean",
+      "description": "Недавно менялись учётные данные, используемые для VPN",
+      "question": "Недавно ли менялись учётные данные, используемые для VPN?"
+    },
+    {
+      "id": "mfa_enabled",
+      "type": "boolean",
+      "description": "Для VPN включена двухфакторная аутентификация",
+      "question": "Для VPN включена двухфакторная аутентификация (MFA)?"
+    },
+    {
+      "id": "mfa_ok",
+      "type": "boolean",
+      "description": "Код/подтверждение MFA проходит успешно",
+      "question": "Проходит ли двухфакторная аутентификация (MFA) без ошибок?"
+    },
+    {
+      "id": "only_this_pc_slow",
+      "type": "boolean",
+      "description": "Проблемы с производительностью наблюдаются только на одном ПК",
+      "question": "Проблемы с производительностью наблюдаются только на этом ПК?"
+    },
+    {
+      "id": "cpu_usage_high",
+      "type": "boolean",
+      "description": "Высокая загрузка CPU на ПК",
+      "question": "По данным диспетчера задач, загрузка CPU высокая?"
+    },
+    {
+      "id": "ram_usage_high",
+      "type": "boolean",
+      "description": "Высокая загрузка оперативной памяти на ПК",
+      "question": "По данным диспетчера задач, загрузка оперативной памяти высокая?"
+    },
+    {
+      "id": "disk_usage_high",
+      "type": "boolean",
+      "description": "Высокая загрузка диска на ПК",
+      "question": "По данным диспетчера задач, загрузка диска высокая (часто 100%)?"
+    },
+    {
+      "id": "system_disk_free_low",
+      "type": "boolean",
+      "description": "На системном диске мало свободного места",
+      "question": "На системном диске мало свободного места (например, менее 10–15%)?"
+    },
+    {
+      "id": "av_scan_running",
+      "type": "boolean",
+      "description": "В данный момент выполняется антивирусное сканирование",
+      "question": "Сейчас выполняется полное антивирусное сканирование?"
+    },
+    {
+      "id": "windows_updates_running",
+      "type": "boolean",
+      "description": "Выполняются обновления ОС",
+      "question": "Выполняются ли сейчас обновления операционной системы?"
+    },
+    {
+      "id": "last_reboot_long_ago",
+      "type": "boolean",
+      "description": "ПК давно не перезагружался",
+      "question": "ПК давно не перезагружался (несколько дней/недель)?"
+    }
+  ],
+  "issues": [
+    {
+      "id": "dns_problem_local",
+      "title": "Проблема с DNS на рабочем ПК",
+      "description": "На рабочем ПК не резолвятся доменные имена при доступе в интернет, при этом сетевое подключение и внешний IP работают корректно.",
+      "recommendation": "Проверьте настройки DNS на рабочей станции: включите автоматическое получение DNS через DHCP или пропишите корректные адреса DNS-серверов."
+    },
+    {
+      "id": "network_discovery_or_profile_issue",
+      "title": "Неверный сетевой профиль или отключено сетевое обнаружение",
+      "description": "Клиентский ПК не видит сетевой ресурс при нормальной работе сети и сервера.",
+      "recommendation": "Переключите профиль сети на 'Частная/Рабочая', включите сетевое обнаружение и общий доступ к файлам, убедитесь, что рабочая группа/домен совпадают с остальными ПК."
+    },
+    {
+      "id": "segment_switch_down",
+      "title": "Проблема с локальным коммутатором/сегментом",
+      "description": "Нет доступа в сеть и интернет только в одном отделе или сегменте, в остальных сегментах сеть работает.",
+      "recommendation": "Проверьте питание и индикацию локального коммутатора, целостность uplink-порта и патч-панели, при необходимости перезагрузите или замените коммутатор."
+    },
+    {
+      "id": "wifi_adapter_local_problem",
+      "title": "Локальная проблема Wi-Fi-адаптера",
+      "description": "Проблемы с Wi-Fi наблюдаются только на одном ноутбуке, при этом другие устройства в той же сети работают нормально.",
+      "recommendation": "Отключите агрессивное энергосбережение адаптера, обновите драйвер Wi-Fi, протестируйте работу ближе к точке доступа или на другом канале."
+    },
+    {
+      "id": "ad_account_locked",
+      "title": "Учётная запись пользователя заблокирована",
+      "description": "Пользователь не может войти в домен, при этом другие пользователи входят успешно, а сообщение указывает на блокировку учетной записи.",
+      "recommendation": "Проверьте статус учётной записи в Active Directory, снимите блокировку и при необходимости сбросьте пароль."
+    },
+    {
+      "id": "mail_client_old_credentials",
+      "title": "В почтовом клиенте сохранены старые учётные данные",
+      "description": "После смены пароля домена веб-почта работает, но почтовый клиент выдаёт ошибку аутентификации.",
+      "recommendation": "Удалите сохранённые устаревшие учётные данные в системе/клиенте и заново введите логин и новый пароль, при необходимости пересоздайте профиль почтового клиента."
+    },
+    {
+      "id": "printer_queue_or_device_error",
+      "title": "Проблема с очередью печати или ошибкой устройства",
+      "description": "Задания печати зависают, при этом принтер доступен по сети, но на панели может быть ошибка или переполнена очередь печати.",
+      "recommendation": "Очистите очередь печати, перезапустите службу диспетчера печати и устраните ошибки на самом принтере (бумага, тонер, замятие)."
+    },
+    {
+      "id": "file_server_overloaded_or_disk_full",
+      "title": "Перегрузка файлового сервера или нехватка дискового пространства",
+      "description": "Работа с файлами на сервере медленная сразу у нескольких пользователей, при этом сеть в целом работает нормально.",
+      "recommendation": "Проверьте загрузку CPU, RAM и дисков на сервере, наличие фоновых задач (бэкап, антивирус), а также свободное место на дисках. Перенесите тяжёлые задачи на ночное время и освободите место."
+    },
+    {
+      "id": "vpn_unreachable",
+      "title": "VPN-шлюз недоступен или блокируется провайдером",
+      "description": "Пользователь не может установить VPN-подключение, клиент сообщает об отсутствии ответа от сервера.",
+      "recommendation": "Проверьте доступность VPN-шлюза по IP/имени и отсутствие блокировки необходимых портов у провайдера. При необходимости измените порт или тип туннеля."
+    },
+    {
+      "id": "vpn_auth_failed",
+      "title": "Ошибка аутентификации при VPN-подключении",
+      "description": "VPN-клиент сообщает об ошибке аутентификации при наличии интернет-подключения и доступного VPN-шлюза.",
+      "recommendation": "Проверьте актуальность учётных данных и пароля, корректность настроек профиля VPN, а также успешность прохождения двухфакторной аутентификации (при её наличии)."
+    },
+    {
+      "id": "local_pc_performance_issue",
+      "title": "Локальная проблема производительности ПК",
+      "description": "Тормозит только один ПК, при этом на других устройствах в сети всё работает нормально.",
+      "recommendation": "Проверьте загрузку CPU, RAM и диска, наличие антивирусного сканирования или обновлений ОС, свободное место на системном диске и время с последней перезагрузки. Освободите место, перенастройте фоновые задачи и при необходимости модернизируйте оборудование."
+    }
+  ],
+  "rules": [
+    {
+      "id": "R1",
+      "scenario": 1,
+      "if": [
+        {
+          "fact": "other_users_internet_ok",
+          "op": "==",
+          "value": true
+        },
+        {
+          "fact": "ping_gateway_ok",
+          "op": "==",
+          "value": true
+        },
+        {
+          "fact": "ping_external_ip_ok",
+          "op": "==",
+          "value": true
+        },
+        {
+          "fact": "dns_resolve_ok",
+          "op": "==",
+          "value": false
+        }
+      ],
+      "then": [
+        {
+          "action": "set_issue",
+          "issueId": "dns_problem_local"
+        }
+      ],
+      "explanation": "У других пользователей интернет работает, шлюз и внешний IP пингуются, но доменные имена не резолвятся — вероятна локальная проблема с DNS на рабочем ПК."
+    },
+    {
+      "id": "R2a",
+      "scenario": 2,
+      "if": [
+        {
+          "fact": "file_server_ip_ping_ok",
+          "op": "==",
+          "value": true
+        },
+        {
+          "fact": "network_profile_private",
+          "op": "==",
+          "value": false
+        }
+      ],
+      "then": [
+        {
+          "action": "set_issue",
+          "issueId": "network_discovery_or_profile_issue"
+        }
+      ],
+      "explanation": "Файловый сервер по IP доступен, но профиль сети не 'Частная/Рабочая' — это может мешать обнаружению ресурсов."
+    },
+    {
+      "id": "R2b",
+      "scenario": 2,
+      "if": [
+        {
+          "fact": "file_server_ip_ping_ok",
+          "op": "==",
+          "value": true
+        },
+        {
+          "fact": "network_discovery_enabled",
+          "op": "==",
+          "value": false
+        }
+      ],
+      "then": [
+        {
+          "action": "set_issue",
+          "issueId": "network_discovery_or_profile_issue"
+        }
+      ],
+      "explanation": "Файловый сервер по IP доступен, но сетевое обнаружение на клиенте отключено — сетевые ресурсы могут не отображаться."
+    },
+    {
+      "id": "R2c",
+      "scenario": 2,
+      "if": [
+        {
+          "fact": "file_server_ip_ping_ok",
+          "op": "==",
+          "value": true
+        },
+        {
+          "fact": "same_workgroup_or_domain",
+          "op": "==",
+          "value": false
+        }
+      ],
+      "then": [
+        {
+          "action": "set_issue",
+          "issueId": "network_discovery_or_profile_issue"
+        }
+      ],
+      "explanation": "Файловый сервер по IP доступен, но ПК в другой рабочей группе/домене — это мешает корректному обнаружению и доступу по имени."
+    },
+    {
+      "id": "R3",
+      "scenario": 3,
+      "if": [
+        {
+          "fact": "segment_only_affected",
+          "op": "==",
+          "value": true
+        },
+        {
+          "fact": "issue_affects_many_users",
+          "op": "==",
+          "value": true
+        },
+        {
+          "fact": "other_users_internet_ok",
+          "op": "==",
+          "value": true
+        },
+        {
+          "fact": "ping_gateway_ok",
+          "op": "==",
+          "value": false
+        }
+      ],
+      "then": [
+        {
+          "action": "set_issue",
+          "issueId": "segment_switch_down"
+        }
+      ],
+      "explanation": "Проблема наблюдается только в одном сегменте и сразу у нескольких пользователей, шлюз недоступен, при этом в других сегментах интернет есть — вероятна проблема с локальным коммутатором/сегментом."
+    },
+    {
+      "id": "R4a",
+      "scenario": 4,
+      "if": [
+        {
+          "fact": "wifi_only_this_device",
+          "op": "==",
+          "value": true
+        },
+        {
+          "fact": "wifi_other_devices_ok",
+          "op": "==",
+          "value": true
+        },
+        {
+          "fact": "wifi_signal_level",
+          "op": "==",
+          "value": "low"
+        }
+      ],
+      "then": [
+        {
+          "action": "set_issue",
+          "issueId": "wifi_adapter_local_problem"
+        }
+      ],
+      "explanation": "Проблема с Wi-Fi только на этом устройстве, на других всё хорошо, уровень сигнала низкий — вероятна локальная проблема с Wi-Fi-адаптером или условиями приёма."
+    },
+    {
+      "id": "R4b",
+      "scenario": 4,
+      "if": [
+        {
+          "fact": "wifi_only_this_device",
+          "op": "==",
+          "value": true
+        },
+        {
+          "fact": "wifi_other_devices_ok",
+          "op": "==",
+          "value": true
+        },
+        {
+          "fact": "wifi_power_saving_enabled",
+          "op": "==",
+          "value": true
+        }
+      ],
+      "then": [
+        {
+          "action": "set_issue",
+          "issueId": "wifi_adapter_local_problem"
+        }
+      ],
+      "explanation": "Проблема только на этом ноутбуке, у других устройств Wi-Fi стабилен, при этом включено агрессивное энергосбережение адаптера — это может вызывать обрывы соединения."
+    },
+    {
+      "id": "R4c",
+      "scenario": 4,
+      "if": [
+        {
+          "fact": "wifi_only_this_device",
+          "op": "==",
+          "value": true
+        },
+        {
+          "fact": "wifi_other_devices_ok",
+          "op": "==",
+          "value": true
+        },
+        {
+          "fact": "wifi_driver_up_to_date",
+          "op": "==",
+          "value": false
+        }
+      ],
+      "then": [
+        {
+          "action": "set_issue",
+          "issueId": "wifi_adapter_local_problem"
+        }
+      ],
+      "explanation": "Проблема только на этом устройстве, другие клиенты работают нормально, драйвер Wi-Fi устарел — вероятна локальная проблема с драйвером адаптера."
+    },
+    {
+      "id": "R5",
+      "scenario": 5,
+      "if": [
+        {
+          "fact": "other_users_login_ok",
+          "op": "==",
+          "value": true
+        },
+        {
+          "fact": "login_error_type",
+          "op": "==",
+          "value": "account_locked"
+        }
+      ],
+      "then": [
+        {
+          "action": "set_issue",
+          "issueId": "ad_account_locked"
+        }
+      ],
+      "explanation": "Другие пользователи входят в домен без проблем, сообщение об ошибке говорит о блокировке учётной записи — вероятно, учётная запись этого пользователя заблокирована политикой безопасности."
+    },
+    {
+      "id": "R6",
+      "scenario": 6,
+      "if": [
+        {
+          "fact": "webmail_ok",
+          "op": "==",
+          "value": true
+        },
+        {
+          "fact": "mail_client_auth_error",
+          "op": "==",
+          "value": true
+        },
+        {
+          "fact": "system_stored_old_credentials",
+          "op": "==",
+          "value": true
+        }
+      ],
+      "then": [
+        {
+          "action": "set_issue",
+          "issueId": "mail_client_old_credentials"
+        }
+      ],
+      "explanation": "Веб-доступ к почте с текущим паролем работает, но почтовый клиент выдаёт ошибку аутентификации и в системе сохранены старые учётные данные — вероятно, клиент использует устаревший пароль."
+    },
+    {
+      "id": "R7a",
+      "scenario": 7,
+      "if": [
+        {
+          "fact": "printer_is_network",
+          "op": "==",
+          "value": true
+        },
+        {
+          "fact": "ping_printer_ok",
+          "op": "==",
+          "value": true
+        },
+        {
+          "fact": "printer_panel_error",
+          "op": "==",
+          "value": true
+        }
+      ],
+      "then": [
+        {
+          "action": "set_issue",
+          "issueId": "printer_queue_or_device_error"
+        }
+      ],
+      "explanation": "Принтер доступен по сети, но на панели отображается ошибка — вероятна проблема непосредственно с устройством (бумага, тонер, замятие и т.п.)."
+    },
+    {
+      "id": "R7b",
+      "scenario": 7,
+      "if": [
+        {
+          "fact": "printer_is_network",
+          "op": "==",
+          "value": true
+        },
+        {
+          "fact": "ping_printer_ok",
+          "op": "==",
+          "value": true
+        },
+        {
+          "fact": "printer_queue_full",
+          "op": "==",
+          "value": true
+        }
+      ],
+      "then": [
+        {
+          "action": "set_issue",
+          "issueId": "printer_queue_or_device_error"
+        }
+      ],
+      "explanation": "Принтер доступен по сети, но очередь печати переполнена/зависла — вероятна проблема с очередью печати на сервере или устройстве."
+    },
+    {
+      "id": "R7c",
+      "scenario": 7,
+      "if": [
+        {
+          "fact": "printer_is_network",
+          "op": "==",
+          "value": true
+        },
+        {
+          "fact": "ping_printer_ok",
+          "op": "==",
+          "value": true
+        },
+        {
+          "fact": "print_spooler_service_ok",
+          "op": "==",
+          "value": false
+        }
+      ],
+      "then": [
+        {
+          "action": "set_issue",
+          "issueId": "printer_queue_or_device_error"
+        }
+      ],
+      "explanation": "Принтер доступен по сети, но служба диспетчера печати работает некорректно — вероятна проблема с сервисом очереди печати."
+    },
+    {
+      "id": "R8a",
+      "scenario": 8,
+      "if": [
+        {
+          "fact": "issue_affects_many_users",
+          "op": "==",
+          "value": true
+        },
+        {
+          "fact": "small_files_also_slow",
+          "op": "==",
+          "value": true
+        },
+        {
+          "fact": "server_cpu_high",
+          "op": "==",
+          "value": true
+        }
+      ],
+      "then": [
+        {
+          "action": "set_issue",
+          "issueId": "file_server_overloaded_or_disk_full"
+        }
+      ],
+      "explanation": "Медленная работа с файлами наблюдается у многих пользователей, даже с небольшими файлами, и на сервере высокая загрузка CPU — вероятна перегрузка файлового сервера."
+    },
+    {
+      "id": "R8b",
+      "scenario": 8,
+      "if": [
+        {
+          "fact": "issue_affects_many_users",
+          "op": "==",
+          "value": true
+        },
+        {
+          "fact": "small_files_also_slow",
+          "op": "==",
+          "value": true
+        },
+        {
+          "fact": "server_ram_high",
+          "op": "==",
+          "value": true
+        }
+      ],
+      "then": [
+        {
+          "action": "set_issue",
+          "issueId": "file_server_overloaded_or_disk_full"
+        }
+      ],
+      "explanation": "Медленная работа с файлами у многих пользователей и высокая загрузка ОЗУ на сервере — вероятна перегрузка ресурсов файлового сервера."
+    },
+    {
+      "id": "R8c",
+      "scenario": 8,
+      "if": [
+        {
+          "fact": "issue_affects_many_users",
+          "op": "==",
+          "value": true
+        },
+        {
+          "fact": "small_files_also_slow",
+          "op": "==",
+          "value": true
+        },
+        {
+          "fact": "server_disk_space_low",
+          "op": "==",
+          "value": true
+        }
+      ],
+      "then": [
+        {
+          "action": "set_issue",
+          "issueId": "file_server_overloaded_or_disk_full"
+        }
+      ],
+      "explanation": "Медленная работа с файлами у многих пользователей и мало свободного места на дисках сервера — вероятна нехватка дискового пространства."
+    },
+    {
+      "id": "R8d",
+      "scenario": 8,
+      "if": [
+        {
+          "fact": "issue_affects_many_users",
+          "op": "==",
+          "value": true
+        },
+        {
+          "fact": "small_files_also_slow",
+          "op": "==",
+          "value": true
+        },
+        {
+          "fact": "server_heavy_background_jobs",
+          "op": "==",
+          "value": true
+        }
+      ],
+      "then": [
+        {
+          "action": "set_issue",
+          "issueId": "file_server_overloaded_or_disk_full"
+        }
+      ],
+      "explanation": "Медленная работа с файлами у многих пользователей и на сервере выполняются тяжёлые фоновые задачи (бэкап, антивирус) — вероятна перегрузка сервера из-за фоновых процессов."
+    },
+    {
+      "id": "R9a",
+      "scenario": 9,
+      "if": [
+        {
+          "fact": "vpn_used_before_on_device",
+          "op": "==",
+          "value": true
+        },
+        {
+          "fact": "vpn_error_type",
+          "op": "==",
+          "value": "no_response"
+        },
+        {
+          "fact": "vpn_gateway_ping_ok",
+          "op": "==",
+          "value": false
+        }
+      ],
+      "then": [
+        {
+          "action": "set_issue",
+          "issueId": "vpn_unreachable"
+        }
+      ],
+      "explanation": "VPN ранее работал на этом устройстве, теперь клиент не получает ответа, при этом VPN-шлюз не пингуется — вероятно, шлюз недоступен или блокируется провайдером."
+    },
+    {
+      "id": "R9b",
+      "scenario": 9,
+      "if": [
+        {
+          "fact": "vpn_used_before_on_device",
+          "op": "==",
+          "value": true
+        },
+        {
+          "fact": "vpn_error_type",
+          "op": "==",
+          "value": "auth_failed"
+        },
+        {
+          "fact": "vpn_gateway_ping_ok",
+          "op": "==",
+          "value": true
+        },
+        {
+          "fact": "vpn_credentials_recently_changed",
+          "op": "==",
+          "value": true
+        }
+      ],
+      "then": [
+        {
+          "action": "set_issue",
+          "issueId": "vpn_auth_failed"
+        }
+      ],
+      "explanation": "VPN-шлюз доступен, ранее VPN работал, но после смены учётных данных клиент выдаёт ошибку аутентификации — вероятно, используются устаревшие или неверные логин/пароль."
+    },
+    {
+      "id": "R9c",
+      "scenario": 9,
+      "if": [
+        {
+          "fact": "vpn_error_type",
+          "op": "==",
+          "value": "auth_failed"
+        },
+        {
+          "fact": "mfa_enabled",
+          "op": "==",
+          "value": true
+        },
+        {
+          "fact": "mfa_ok",
+          "op": "==",
+          "value": false
+        }
+      ],
+      "then": [
+        {
+          "action": "set_issue",
+          "issueId": "vpn_auth_failed"
+        }
+      ],
+      "explanation": "VPN-клиент сообщает об ошибке аутентификации, включена двухфакторная аутентификация и она не проходит — вероятна проблема с прохождением MFA."
+    },
+    {
+      "id": "R10a",
+      "scenario": 10,
+      "if": [
+        {
+          "fact": "only_this_pc_slow",
+          "op": "==",
+          "value": true
+        },
+        {
+          "fact": "cpu_usage_high",
+          "op": "==",
+          "value": true
+        }
+      ],
+      "then": [
+        {
+          "action": "set_issue",
+          "issueId": "local_pc_performance_issue"
+        }
+      ],
+      "explanation": "Тормозит только один ПК и наблюдается высокая загрузка CPU — вероятна локальная проблема производительности (процессы, службы)."
+    },
+    {
+      "id": "R10b",
+      "scenario": 10,
+      "if": [
+        {
+          "fact": "only_this_pc_slow",
+          "op": "==",
+          "value": true
+        },
+        {
+          "fact": "disk_usage_high",
+          "op": "==",
+          "value": true
+        }
+      ],
+      "then": [
+        {
+          "action": "set_issue",
+          "issueId": "local_pc_performance_issue"
+        }
+      ],
+      "explanation": "Тормозит только один ПК и наблюдается постоянная высокая загрузка диска — вероятна локальная проблема производительности (фоновые задачи, фрагментация, антивирус)."
+    },
+    {
+      "id": "R10c",
+      "scenario": 10,
+      "if": [
+        {
+          "fact": "only_this_pc_slow",
+          "op": "==",
+          "value": true
+        },
+        {
+          "fact": "system_disk_free_low",
+          "op": "==",
+          "value": true
+        }
+      ],
+      "then": [
+        {
+          "action": "set_issue",
+          "issueId": "local_pc_performance_issue"
+        }
+      ],
+      "explanation": "Тормозит только один ПК и на системном диске мало свободного места — вероятна локальная проблема, связанная с нехваткой дискового пространства."
+    },
+    {
+      "id": "R10d",
+      "scenario": 10,
+      "if": [
+        {
+          "fact": "only_this_pc_slow",
+          "op": "==",
+          "value": true
+        },
+        {
+          "fact": "av_scan_running",
+          "op": "==",
+          "value": true
+        }
+      ],
+      "then": [
+        {
+          "action": "set_issue",
+          "issueId": "local_pc_performance_issue"
+        }
+      ],
+      "explanation": "Тормозит только один ПК, при этом выполняется полное антивирусное сканирование — вероятна временная деградация производительности из-за работы антивируса."
+    },
+    {
+      "id": "R10e",
+      "scenario": 10,
+      "if": [
+        {
+          "fact": "only_this_pc_slow",
+          "op": "==",
+          "value": true
+        },
+        {
+          "fact": "windows_updates_running",
+          "op": "==",
+          "value": true
+        }
+      ],
+      "then": [
+        {
+          "action": "set_issue",
+          "issueId": "local_pc_performance_issue"
+        }
+      ],
+      "explanation": "Тормозит только один ПК и в данный момент выполняются обновления ОС — вероятна временная деградация производительности из-за обновлений."
+    },
+    {
+      "id": "R10f",
+      "scenario": 10,
+      "if": [
+        {
+          "fact": "only_this_pc_slow",
+          "op": "==",
+          "value": true
+        },
+        {
+          "fact": "last_reboot_long_ago",
+          "op": "==",
+          "value": true
+        }
+      ],
+      "then": [
+        {
+          "action": "set_issue",
+          "issueId": "local_pc_performance_issue"
+        }
+      ],
+      "explanation": "Тормозит только один ПК и он давно не перезагружался — вероятна локальная проблема производительности, решаемая перезагрузкой и очисткой временных ресурсов."
+    }
+  ],
+  "testScenarios": [
+    {
+      "id": "S1",
+      "name": "Не открываются сайты на рабочем ПК",
+      "description": "У одного сотрудника не открываются сайты, у остальных интернет работает.",
+      "initialFacts": {
+        "other_users_internet_ok": true,
+        "ping_gateway_ok": true,
+        "ping_external_ip_ok": true,
+        "dns_resolve_ok": false
+      },
+      "expectedIssue": "dns_problem_local"
+    },
+    {
+      "id": "S2",
+      "name": "Один компьютер не видит файловый сервер по имени",
+      "description": "Пользователь не видит общий ресурс по имени сервера, хотя по IP сервер доступен.",
+      "initialFacts": {
+        "file_server_ip_ping_ok": true,
+        "network_discovery_enabled": false
+      },
+      "expectedIssue": "network_discovery_or_profile_issue"
+    },
+    {
+      "id": "S3",
+      "name": "Не работает интернет в одном отделе",
+      "description": "Во всём кабинете нет доступа в сеть, в других отделах всё работает.",
+      "initialFacts": {
+        "segment_only_affected": true,
+        "issue_affects_many_users": true,
+        "other_users_internet_ok": true,
+        "ping_gateway_ok": false
+      },
+      "expectedIssue": "segment_switch_down"
+    },
+    {
+      "id": "S4",
+      "name": "Wi-Fi постоянно отваливается на одном ноутбуке",
+      "description": "Только у одного ноутбука проблемы с Wi-Fi, другие устройства работают стабильно.",
+      "initialFacts": {
+        "wifi_only_this_device": true,
+        "wifi_other_devices_ok": true,
+        "wifi_signal_level": "low"
+      },
+      "expectedIssue": "wifi_adapter_local_problem"
+    },
+    {
+      "id": "S5",
+      "name": "Пользователь не может войти в домен",
+      "description": "Один сотрудник не может войти в домен, другие входят без проблем.",
+      "initialFacts": {
+        "other_users_login_ok": true,
+        "login_error_type": "account_locked"
+      },
+      "expectedIssue": "ad_account_locked"
+    },
+    {
+      "id": "S6",
+      "name": "После смены пароля не работает почтовый клиент",
+      "description": "После смены пароля веб-почта работает, но почтовый клиент не подключается.",
+      "initialFacts": {
+        "webmail_ok": true,
+        "mail_client_auth_error": true,
+        "system_stored_old_credentials": true
+      },
+      "expectedIssue": "mail_client_old_credentials"
+    },
+    {
+      "id": "S7",
+      "name": "Не печатается на сетевой принтер",
+      "description": "Пользователи отправляют задания на сетевой принтер, но печать не начинается.",
+      "initialFacts": {
+        "printer_is_network": true,
+        "ping_printer_ok": true,
+        "printer_queue_full": true
+      },
+      "expectedIssue": "printer_queue_or_device_error"
+    },
+    {
+      "id": "S8",
+      "name": "Сильно тормозит файловый сервер",
+      "description": "Работа с файлами на сервере стала очень медленной сразу у нескольких сотрудников.",
+      "initialFacts": {
+        "issue_affects_many_users": true,
+        "small_files_also_slow": true,
+        "server_cpu_high": true
+      },
+      "expectedIssue": "file_server_overloaded_or_disk_full"
+    },
+    {
+      "id": "S9",
+      "name": "Пользователь не может подключиться к VPN (нет ответа от сервера)",
+      "description": "Ранее VPN работал, сейчас клиент не получает ответа, шлюз не пингуется.",
+      "initialFacts": {
+        "vpn_used_before_on_device": true,
+        "vpn_error_type": "no_response",
+        "vpn_gateway_ping_ok": false
+      },
+      "expectedIssue": "vpn_unreachable"
+    },
+    {
+      "id": "S10",
+      "name": "Компьютер сильно тормозит только у одного пользователя",
+      "description": "Только один ПК работает заметно медленнее остальных.",
+      "initialFacts": {
+        "only_this_pc_slow": true,
+        "cpu_usage_high": true
+      },
+      "expectedIssue": "local_pc_performance_issue"
+    }
+  ]
+}
